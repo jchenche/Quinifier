@@ -1,0 +1,13 @@
+.Textbox textarea {
+  resize: none;
+  outline: none;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 600px;
+  width: 600px;
+  padding: 10px;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px #999;
+}
