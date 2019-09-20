@@ -7,7 +7,7 @@ class BodyContainer extends Component {
   render() {
     return (
       <div className="BodyContainer">
-        <SrcTextbox />
+        <SrcTextbox onTextChange={this.props.onTextChange}/>
         <DstTextbox modifiedSource={this.props.modifiedSource} />
       </div>
     );

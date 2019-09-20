@@ -7,6 +7,7 @@ class SrcTextbox extends Component {
       <div className="Textbox">
         <textarea id="srcCode"
           placeholder="Paste your source code here..."
+          onChange={() => this.props.onTextChange(document.getElementById("srcCode").value)}
         ></textarea>
       </div>
     );
