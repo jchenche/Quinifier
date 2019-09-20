@@ -6,7 +6,7 @@ class SrcTextbox extends Component {
     return(
       <div className="Textbox">
         <textarea id="srcCode"
-        placeholder="Paste your source code here..."
+          placeholder="Paste your source code here..."
         ></textarea>
       </div>
     );

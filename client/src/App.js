@@ -18,10 +18,14 @@ class App extends Component {
       .catch(err => console.log("JCC " + err));
   }
 
+  quinify = () => {
+    console.log("src = " + this)
+  }
+
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header onQuinify={this.quinify} />
         <hr width="97%" />
         <BodyContainer modifiedSource={this.state.modifiedSource} />
       </div>
