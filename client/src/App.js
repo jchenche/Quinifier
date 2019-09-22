@@ -12,15 +12,35 @@ class App extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   fetch('http://localhost:3001/')
-  //     .then(res => res.text())
-  //     .then(res => this.setState({modifiedSource: res}))
-  //     .catch(err => console.log("JCC " + err));
-  // }
-
   quinify = () => {
-    console.log("quinify=" + this)
+    var source = this.state.source;
+    if (source[source.length - 1] !== '\n') {
+      source += '\n';
+    }
+    var modified = source;
+
+    source = source.replace(/\\n/g, '\\\\n')
+                  .replace(/\n/g, '\\n')
+                  .replace(/\n/g, '\\n')
+                  // eslint-disable-next-line
+                  .replace(/\'/g, '\\\'')
+                  .replace(/\{/g, '{{')
+                  .replace(/\}/g, '}}')
+    var escape_curly = "{0}"
+    
+    modified += `s = r'''print('${source}s = r\\'\\'\\'${escape_curly}\\'\\'\\'\\n${escape_curly}'.format(s))'''\n`;
+    modified += `print('${source}s = r\\'\\'\\'${escape_curly}\\'\\'\\'\\n${escape_curly}'.format(s))`;
+
+    this.setState({modifiedSource: modified});
+    // fetch('http://localhost:3001/', {
+    //   method: 'POST',
+    //   body: JSON.stringify({'source': this.state.source}),
+    //   headers:{
+    //     'Content-Type': 'application/json'
+    //   }
+    // }).then(res => res.text())
+    // .then(res => this.setState({modifiedSource: res}))
+    // .catch(err => console.error('Error:', err));
   }
 
   saveText = source => {
