@@ -17,7 +17,7 @@ class App extends Component {
     if (source[source.length - 1] !== '\n') {
       source += '\n';
     }
-    var modified = source;
+    var modifiedSource = source;
 
     source = source.replace(/\\n/g, '\\\\n')
                   .replace(/\n/g, '\\n')
@@ -28,10 +28,10 @@ class App extends Component {
                   .replace(/\}/g, '}}');
     var escapeCurly = "{0}";
     
-    modified += `s = r'''print('${source}s = r\\'\\'\\'${escapeCurly}\\'\\'\\'\\n${escapeCurly}'.format(s))'''\n`;
-    modified += `print('${source}s = r\\'\\'\\'${escapeCurly}\\'\\'\\'\\n${escapeCurly}'.format(s))`;
+    modifiedSource += `s = r'''print('${source}s = r\\'\\'\\'${escapeCurly}\\'\\'\\'\\n${escapeCurly}'.format(s))'''\n`;
+    modifiedSource += `print('${source}s = r\\'\\'\\'${escapeCurly}\\'\\'\\'\\n${escapeCurly}'.format(s))`;
 
-    this.setState({modifiedSource: modified});
+    this.setState({modifiedSource: modifiedSource});
   }
 
   saveText = source => {

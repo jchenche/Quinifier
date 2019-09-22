@@ -6,8 +6,8 @@ class DstTextbox extends Component {
     return(
       <div className="Textbox">
         <textarea readOnly id="dstCode"
-        placeholder="Modified source code will be generated here..."
-        value={this.props.modifiedSource}
+          placeholder="Modified source code will be generated here..."
+          value={this.props.modifiedSource}
         ></textarea>
       </div>
     );
