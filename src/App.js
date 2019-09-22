@@ -25,26 +25,17 @@ class App extends Component {
                   // eslint-disable-next-line
                   .replace(/\'/g, '\\\'')
                   .replace(/\{/g, '{{')
-                  .replace(/\}/g, '}}')
-    var escape_curly = "{0}"
+                  .replace(/\}/g, '}}');
+    var escapeCurly = "{0}";
     
-    modified += `s = r'''print('${source}s = r\\'\\'\\'${escape_curly}\\'\\'\\'\\n${escape_curly}'.format(s))'''\n`;
-    modified += `print('${source}s = r\\'\\'\\'${escape_curly}\\'\\'\\'\\n${escape_curly}'.format(s))`;
+    modified += `s = r'''print('${source}s = r\\'\\'\\'${escapeCurly}\\'\\'\\'\\n${escapeCurly}'.format(s))'''\n`;
+    modified += `print('${source}s = r\\'\\'\\'${escapeCurly}\\'\\'\\'\\n${escapeCurly}'.format(s))`;
 
     this.setState({modifiedSource: modified});
-    // fetch('http://localhost:3001/', {
-    //   method: 'POST',
-    //   body: JSON.stringify({'source': this.state.source}),
-    //   headers:{
-    //     'Content-Type': 'application/json'
-    //   }
-    // }).then(res => res.text())
-    // .then(res => this.setState({modifiedSource: res}))
-    // .catch(err => console.error('Error:', err));
   }
 
   saveText = source => {
-    this.setState({source: source})
+    this.setState({source: source});
   }
 
   render() {
