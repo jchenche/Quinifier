@@ -1,5 +1,4 @@
-FROM mhart/alpine-node
+FROM mesosphere/aws-cli
 WORKDIR '/quinifier'
-RUN npm install -g serve
-COPY /build .
-CMD ["serve", "-s", "."]
+COPY /build ./
+CMD ["s3", "sync", "./", "s3://quinifier"]
